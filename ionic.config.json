@@ -1,0 +1,7 @@
+{
+  "name": "WorkoutLogger",
+  "integrations": {
+    "capacitor": {}
+  },
+  "type": "angular"
+}

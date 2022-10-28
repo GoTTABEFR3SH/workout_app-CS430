@@ -1,0 +1,30 @@
+.center-button{
+ 
+    padding: 8px;
+  }
+  
+  .ion-no-padding {
+    --padding-start: 0 !important;
+    --padding-end: 0 !important;
+    --padding-top: 0 !important;
+    --padding-bottom: 0 !important;
+    padding-left: 0 !important;
+    padding-right: 0 !important;
+    padding-top: 0 !important;
+    padding-bottom: 0 !important;
+  }
+
+  .center-screen {
+    position: fixed;
+    left: 40%;
+    bottom: 50%;
+    right: 0%;
+}
+.popover-center{
+  --offset-x: -7%;
+  --offset-y: 30%
+}
+ .align-vertical{
+  display: table-cell;
+  vertical-align: middle;
+}
