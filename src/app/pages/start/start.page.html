@@ -22,7 +22,7 @@
   <ion-popover class='popover-center'trigger="add" [isOpen]="isPopoverOpen" alignment="end" triggerAction="click">
     <ng-template>
       <ion-card>
-        <ion-list class="align-vertical">
+        <ion-list>
           <ion-item>
               <ion-select placeholder="Select Excercise">
                 <ion-select-option value="Bench">Bench</ion-select-option>
@@ -33,14 +33,14 @@
           <ion-item class="ion-align-items-end">
             <ion-grid [fixed]="true">
               <ion-row>
-                  <ion-col size-xl ="1" size-lg="1" size-md="2" size-sm="6" size-xs="6" class="ion-padding-top"> 
+                  <ion-col size-xl ="1" size-lg="1" size-md="2" size-sm="6" size-xs="4" class="ion-padding-top"> 
                     <ion-text>Reps</ion-text>
                   </ion-col>
-                  <ion-col size-xl ="1" size-lg="2" size-md="2" size-sm="5" size-xs="5">
+                  <ion-col size-xl ="1" size-lg="2" size-md="2" size-sm="5" size-xs="auto">
                     <ion-button (click)="add_rep()">+</ion-button>
                     <ion-button (click)="subtract_rep()">-</ion-button>
                   </ion-col>
-                  <ion-col size-xl="1" size-lg="5" size-md="6" size-sm="1" size-xs="1" class="ion-padding-top">
+                  <ion-col size-xl="1" size-lg="5" size-md="6" size-sm="1" size-xs="2" class="ion-padding-top">
                     <ion-text>{{reps}}</ion-text>
                   </ion-col>
               </ion-row>
@@ -49,14 +49,14 @@
           <ion-item class="ion-align-items-end">
             <ion-grid [fixed]="true">
               <ion-row>
-                  <ion-col size-xl ="1" size-lg="1" size-md="2" size-sm="9" size-xs="6" class="ion-padding-top"> 
+                  <ion-col size-xl ="1" size-lg="1" size-md="2" size-sm="9" size-xs="4" class="ion-padding-top"> 
                     <ion-text class="ion-padding-end">Weight</ion-text>
                   </ion-col>
-                  <ion-col size-xl ="1" size-lg="2" size-md="2" size-sm="2" size-xs="5">
+                  <ion-col size-xl ="1" size-lg="2" size-md="2" size-sm="2" size-xs="auto">
                     <ion-button (click)="add_weight()">+</ion-button>
                     <ion-button (click)="subtract_weight()">-</ion-button>
                   </ion-col>
-                  <ion-col size-xl="1" size-lg="5" size-md="6" size-sm="1" size-xs="1" class="ion-padding-top">
+                  <ion-col size-xl="1" size-lg="5" size-md="6" size-sm="1" size-xs="2" class="ion-padding-top">
                     <ion-text>{{weight}}</ion-text>
                   </ion-col>
               </ion-row>
