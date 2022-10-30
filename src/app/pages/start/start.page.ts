@@ -1,3 +1,6 @@
+/* eslint-disable eqeqeq */
+/* eslint-disable @typescript-eslint/member-ordering */
+/* eslint-disable @typescript-eslint/naming-convention */
 import { Component, OnInit } from '@angular/core';
 import { NavController } from '@ionic/angular';
 import { Storage } from '@ionic/storage';
@@ -12,24 +15,29 @@ import data_json from 'src/assets/data.json';
   providers:[StorageService]
 })
 export class StartPage implements OnInit {
- 
-  constructor(public navCtrl: NavController, public storage:StorageService) {
-   
+
+  constructor(public navCtrl: NavController, public storage: StorageService) {
+
   }
- 
+
+  set_list: Set[] = [];
   myArray = [];
+  set_num = 1;
   reps = 0;
   weight = 135;
+  excercise = '';
 
   async add_to_db(){
     await this.storage.set('my_workout', data_json);
     this.myArray.push();
+    this.set_list.push();
   }
-  
+
   add_rep(){
     this.reps += 1;
   }
- 
+
+  // eslint-disable-next-line @typescript-eslint/naming-convention
   subtract_rep(){
     if(this.reps != 0){
       this.reps -= 1;
@@ -46,21 +54,51 @@ export class StartPage implements OnInit {
     }
   }
 
-  reset_count(){
+  reset(){
     this.reps = 0;
     this.weight = 135;
+    this.set_num = 1;
+    this.set_list = [];
   }
-  
+
   print_log(){
-    var obj = this.storage.get
-    console.log(this.storage.get('my_workout'))
+    const obj = this.storage.get;
+    console.log(this.storage.get('my_workout'));
   }
   go_to_add_workout(){
-    this.navCtrl.navigateForward(['/add-workout'])
+    this.navCtrl.navigateForward(['/add-workout']);
   }
-  date_time:Date
+  date_time: Date;
   ngOnInit() {
-    this.date_time = new Date()
+    this.date_time = new Date();
   }
+  add_to_set_list(){
+    const new_set = new Set();
+    new_set.Excercise = this.excercise;
+    new_set.Set = this.set_num;
+    new_set.Reps = this.reps;
+    new_set.Weight = this.weight;
+    console.log(typeof new_set.Excercise);
+    console.log(typeof new_set.Reps);
+    console.log(typeof new_set.Weight);
+    this.set_list.push(new_set);
+    this.add_set();
+  }
+
+  add_set(){
+    this.set_num += 1;
+  }
+
+  handle_Change(e){
+    this.excercise = e.detail.value;
+    console.log(typeof this.excercise);
+  }
+
+}
+class Set {
+  Excercise: string;
+  Set: number;
+  Reps: number;
+  Weight: number;
 
 }
