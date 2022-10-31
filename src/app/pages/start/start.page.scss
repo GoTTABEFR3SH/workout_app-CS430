@@ -20,11 +20,27 @@
     bottom: 50%;
     right: 0%;
 }
-.popover-center{
+.popover-position{
   --offset-x: -5%;
-  --offset-y: 30%
+  --offset-y: 20%
 }
  .align-vertical{
   display: table-cell;
   vertical-align: middle;
 }
+
+cdk-virtual-scroll-viewport {
+  height: 100%;
+  width: 100%;
+}
+
+ion-card {
+  overflow: scroll;
+  height: 100%;
+  white-space: normal;
+}
+
+.center-text{
+  text-align: center;
+}
+

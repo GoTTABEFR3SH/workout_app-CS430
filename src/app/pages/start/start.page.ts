@@ -21,7 +21,9 @@ export class StartPage implements OnInit {
   }
 
   set_list: Set[] = [];
+  current_workout = [];
   myArray = [];
+  
   set_num = 1;
   reps = 0;
   weight = 135;
@@ -59,6 +61,7 @@ export class StartPage implements OnInit {
     this.weight = 135;
     this.set_num = 1;
     this.set_list = [];
+    this.excercise = '';
   }
 
   print_log(){
@@ -78,15 +81,35 @@ export class StartPage implements OnInit {
     new_set.Set = this.set_num;
     new_set.Reps = this.reps;
     new_set.Weight = this.weight;
-    console.log(typeof new_set.Excercise);
-    console.log(typeof new_set.Reps);
-    console.log(typeof new_set.Weight);
     this.set_list.push(new_set);
     this.add_set();
   }
-
+  subtract_from_set_list(){
+    if(this.set_list.length != 0){
+    this.set_list.pop();
+    this.subtract_set();
+    }
+  }
+  push_to_current_workout(){
+    if(this.set_list.length != 0){
+    this.current_workout.push(this.set_list);
+    const new_set: Set = this.current_workout[0];
+    console.log(new_set);
+    console.log("From PTCW" + this.current_workout[0][0].Excercise)
+    this.reset();
+    }
+    else{
+      console.log("No Sets Added!");
+    }
+  }
   add_set(){
     this.set_num += 1;
+  }
+
+  subtract_set(){
+    if(this.set_num != 0){
+      this.set_num -= 1;
+    }
   }
 
   handle_Change(e){

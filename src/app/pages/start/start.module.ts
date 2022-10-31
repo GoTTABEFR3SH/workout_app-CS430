@@ -8,12 +8,15 @@ import { StartPageRoutingModule } from './start-routing.module';
 
 import { StartPage } from './start.page';
 
+import {ScrollingModule} from '@angular/cdk/scrolling'
+
 @NgModule({
   imports: [
     CommonModule,
     FormsModule,
     IonicModule,
-    StartPageRoutingModule
+    StartPageRoutingModule,
+    ScrollingModule
   ],
   declarations: [StartPage]
 })

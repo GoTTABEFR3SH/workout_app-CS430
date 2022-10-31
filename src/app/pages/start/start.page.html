@@ -17,73 +17,97 @@
 
 <ion-content [scrollEvents]="true">
   <div class="ion-text-center">
-  <ion-button class="ion-text-center" (click)="add_to_db()">{{ date_time | date:'fullDate'}}</ion-button>
-</div>
-  <ion-popover class='popover-center'trigger="add" [isOpen]="isPopoverOpen" alignment="end" triggerAction="click">
-    <ng-template>
-      <ion-card>
-        <ion-list>
-          <ion-item>
-              <ion-select (ionChange)="handle_Change($event)" placeholder="Select Excercise">
-                <ion-select-option value="Bench">Bench</ion-select-option>
-                <ion-select-option value="Squat">Squat</ion-select-option>
-                <ion-select-option value="Deadlift">Deadlift</ion-select-option>
-              </ion-select>
-              <ion-button (click)="add_to_set_list()" slot="end">Confirm</ion-button>
-            </ion-item>
-          <ion-item class="ion-align-items-end">
-            <ion-grid [fixed]="true">
-              <ion-row>
-                  <ion-col size-xl ="1" size-lg="1" size-md="2" size-sm="6" size-xs="4" class="ion-padding-top"> 
-                    <ion-text>Reps</ion-text>
-                  </ion-col>
-                  <ion-col size-xl ="1" size-lg="2" size-md="2" size-sm="5" size-xs="auto">
-                    <ion-button (click)="add_rep()">+</ion-button>
-                    <ion-button (click)="subtract_rep()">-</ion-button>
-                  </ion-col>
-                  <ion-col size-xl="1" size-lg="5" size-md="6" size-sm="1" size-xs="2" class="ion-padding-top">
-                    <ion-text>{{reps}}</ion-text>
-                  </ion-col>
-              </ion-row>
-            </ion-grid>
-          </ion-item>
-          <ion-item class="ion-align-items-end">
-            <ion-grid [fixed]="true">
-              <ion-row>
-                  <ion-col size-xl ="1" size-lg="1" size-md="2" size-sm="9" size-xs="4" class="ion-padding-top"> 
-                    <ion-text class="ion-padding-end">Weight</ion-text>
-                  </ion-col>
-                  <ion-col size-xl ="1" size-lg="2" size-md="2" size-sm="2" size-xs="auto">
-                    <ion-button (click)="add_weight()">+</ion-button>
-                    <ion-button (click)="subtract_weight()">-</ion-button>
-                  </ion-col>
-                  <ion-col size-xl="1" size-lg="5" size-md="6" size-sm="1" size-xs="2" class="ion-padding-top">
-                    <ion-text>{{weight}}</ion-text>
-                  </ion-col>
-              </ion-row>
-            </ion-grid>
-          </ion-item>
-          <ion-item class="ion-align-items-end">
-            <ion-grid [fixed]="true">
-              <ion-row *ngFor="let set of set_list">
-                <ion-col size-xl ="1" size-lg="1" size-md="2" size-sm="9" size-xs="4" class="ion-padding-top"> 
-                  <ion-text class="ion-padding-end">Set: {{set.Set}}</ion-text>
-                </ion-col>  
-                <ion-col size-xl ="1" size-lg="1" size-md="2" size-sm="9" size-xs="4" class="ion-padding-top"> 
-                    <ion-text class="ion-padding-end">{{set.Reps}}</ion-text>
-                  </ion-col>
-                  <ion-col size-xl="1" size-lg="5" size-md="6" size-sm="1" size-xs="2" class="ion-padding-top">
-                    <ion-text>{{set.Weight}}</ion-text>
-                  </ion-col>
-              </ion-row>
-            </ion-grid>
-          </ion-item>
-        
-            
+    <ion-button class="ion-text-center" (click)="add_to_db()">{{ date_time | date:'fullDate'}}</ion-button>
+  </div>
+  <ion-list>
+    <ion-item *ngFor="let current of current_workout">
+          <ion-label>Excercise: {{current[0].Excercise}}</ion-label>
+    </ion-item>
+</ion-list>
+</ion-content>
 
-        </ion-list>
-      </ion-card>
-    </ng-template>
+ 
+
+
+<ion-popover class='popover-position'trigger="add" [isOpen]="isPopoverOpen" alignment="end" triggerAction="click">
+        <ng-template>
+          <ion-card scrolly="true">
+            <ion-list>
+                <ion-item>
+                    <ion-select (ionChange)="handle_Change($event)" placeholder="Select Excercise">
+                      <ion-select-option value="Bench">Bench</ion-select-option>
+                      <ion-select-option value="Squat">Squat</ion-select-option>
+                      <ion-select-option value="Deadlift">Deadlift</ion-select-option>
+                    </ion-select>
+                    <ion-button (click)="push_to_current_workout()" slot="end">Confirm</ion-button>
+                  </ion-item>
+                <ion-item class="ion-align-items-end">
+                  <ion-grid [fixed]="true">
+                    <ion-row>
+                        <ion-col size-xl ="1" size-lg="1" size-md="2" size-sm="6" size-xs="4" class="ion-padding-top"> 
+                          <ion-text>Reps</ion-text>
+                        </ion-col>
+                        <ion-col size-xl ="1" size-lg="2" size-md="2" size-sm="5" size-xs="auto">
+                          <ion-button (click)="add_rep()">+</ion-button>
+                          <ion-button (click)="subtract_rep()">-</ion-button>
+                        </ion-col>
+                        <ion-col size-xl="1" size-lg="5" size-md="6" size-sm="1" size-xs="2" class="ion-padding-top">
+                          <ion-text>{{reps}}</ion-text>
+                        </ion-col>
+                    </ion-row>
+                  </ion-grid>
+                </ion-item>
+                <ion-item class="ion-align-items-end">
+                  <ion-grid [fixed]="true">
+                    <ion-row>
+                        <ion-col size-xl ="1" size-lg="1" size-md="2" size-sm="9" size-xs="4" class="ion-padding-top"> 
+                          <ion-text class="ion-padding-end">Weight</ion-text>
+                        </ion-col>
+                        <ion-col size-xl ="1" size-lg="2" size-md="2" size-sm="2" size-xs="auto">
+                          <ion-button (click)="add_weight()">+</ion-button>
+                          <ion-button (click)="subtract_weight()">-</ion-button>
+                        </ion-col>
+                        <ion-col size-xl="1" size-lg="5" size-md="6" size-sm="1" size-xs="2" class="ion-padding-top">
+                          <ion-text>{{weight}}</ion-text>
+                        </ion-col>
+                    </ion-row>
+                  </ion-grid>
+                </ion-item>
+                <ion-item class="ion-align-items-end">
+                  <ion-grid [fixed]="true">
+                    <ion-row>
+                        <ion-col class="ion-text-center"size-xl ="6" size-lg="2" size-md="2" size-sm="2" size-xs="auto">
+                          <ion-button (click)="add_to_set_list()">Add Set</ion-button>
+                        </ion-col>
+                        <ion-col class="ion-text-center" size-xl ="6" size-lg="2" size-md="2" size-sm="2" size-xs="auto">
+                          <ion-button (click)="subtract_from_set_list()">Delete Set</ion-button>
+                        </ion-col>
+                    </ion-row>
+                  </ion-grid>
+                </ion-item>
+            </ion-list>
+            <ion-list>
+                  <ion-item class="ion-align-items-end">
+                    <ion-grid [fixed]="true">
+                      <ion-row *ngFor="let set of set_list">
+                        <ion-col size-xl ="1" size-lg="1" size-md="2" size-sm="9" size-xs="4" class="ion-padding-top"> 
+                          <ion-text class="ion-padding-end">Set: {{set.Set}}</ion-text>
+                        </ion-col>  
+                        <ion-col size-xl ="1" size-lg="1" size-md="2" size-sm="9" size-xs="4" class="ion-padding-top"> 
+                            <ion-text class="ion-padding-end">{{set.Reps}}</ion-text>
+                          </ion-col>
+                          <ion-col size-xl="1" size-lg="5" size-md="6" size-sm="1" size-xs="2" class="ion-padding-top">
+                            <ion-text>{{set.Weight}}</ion-text>
+                          </ion-col>
+                      </ion-row>
+                    </ion-grid>
+                  </ion-item>
+            </ion-list>
+          </ion-card>
+        </ng-template> 
   </ion-popover>
-  
+
+
+
+
 
