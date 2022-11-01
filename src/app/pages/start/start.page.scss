@@ -44,3 +44,15 @@ ion-card {
   text-align: center;
 }
 
+.item-background-color-white{
+  --ion-item-background:#ffffffd5;
+}
+
+.item-background-color-black{
+  --ion-item-background:#000000d5;
+}
+
+ion-content{
+
+  --ion-background-color:#000000;
+}

@@ -23,7 +23,7 @@ export class StartPage implements OnInit {
   set_list: Set[] = [];
   current_workout = [];
   myArray = [];
-  
+
   set_num = 1;
   reps = 0;
   weight = 135;
@@ -95,11 +95,11 @@ export class StartPage implements OnInit {
     this.current_workout.push(this.set_list);
     const new_set: Set = this.current_workout[0];
     console.log(new_set);
-    console.log("From PTCW" + this.current_workout[0][0].Excercise)
+    console.log('From PTCW' + this.current_workout[0][0].Excercise);
     this.reset();
     }
     else{
-      console.log("No Sets Added!");
+      console.log('No Sets Added!');
     }
   }
   add_set(){

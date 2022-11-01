@@ -15,14 +15,14 @@
   </ion-toolbar>
 </header>
 
-<ion-content [scrollEvents]="true">
+<ion-content class="item-background-color-black" [scrollEvents]="true">
   <div class="ion-text-center">
     <ion-button class="ion-text-center" (click)="add_to_db()">{{ date_time | date:'fullDate'}}</ion-button>
   </div>
   <ion-list>
     <ion-item *ngFor="let current of current_workout">
-          <ion-label>Excercise: {{current[0].Excercise}}</ion-label>
-    </ion-item>
+      <ion-text>{{current[0].Excercise}}: {{current.at(-1).Set}} sets</ion-text>
+  </ion-item>
 </ion-list>
 </ion-content>
 
