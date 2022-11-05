@@ -1,58 +1,72 @@
 .center-button{
  
-    padding: 8px;
-  }
-  
-  .ion-no-padding {
-    --padding-start: 0 !important;
-    --padding-end: 0 !important;
-    --padding-top: 0 !important;
-    --padding-bottom: 0 !important;
-    padding-left: 0 !important;
-    padding-right: 0 !important;
-    padding-top: 0 !important;
-    padding-bottom: 0 !important;
-  }
+  padding: 8px;
+}
 
-  .center-screen {
-    position: fixed;
-    left: 40%;
-    bottom: 50%;
-    right: 0%;
+.ion-no-padding {
+  --padding-start: 0 !important;
+  --padding-end: 0 !important;
+  --padding-top: 0 !important;
+  --padding-bottom: 0 !important;
+  padding-left: 0 !important;
+  padding-right: 0 !important;
+  padding-top: 0 !important;
+  padding-bottom: 0 !important;
+}
+
+.center-screen {
+  position: fixed;
+  left: 40%;
+  bottom: 50%;
+  right: 0%;
 }
 .popover-position{
-  --offset-x: -5%;
-  --offset-y: 20%
+--offset-x: -5%;
+--offset-y: 20%
 }
- .align-vertical{
-  display: table-cell;
-  vertical-align: middle;
+.align-vertical{
+display: table-cell;
+vertical-align: middle;
 }
 
 cdk-virtual-scroll-viewport {
-  height: 100%;
-  width: 100%;
+height: 100%;
+width: 100%;
 }
 
 ion-card {
-  overflow: scroll;
-  height: 100%;
-  white-space: normal;
+overflow: scroll;
+height: 100%;
+white-space: normal;
 }
 
 .center-text{
-  text-align: center;
+text-align: center;
 }
 
 .item-background-color-white{
-  --ion-item-background:#ffffffd5;
+--ion-item-background:#ffffffd5;
 }
 
 .item-background-color-black{
-  --ion-item-background:#000000d5;
+--ion-item-background:#000000d5;
 }
 
 ion-content{
 
-  --ion-background-color:#000000;
+--ion-background-color:#000000;
+}
+
+.button-size{
+  width: 100%;
+  height: 100%;
+
+}
+
+.container {
+  justify-content: center;
+}
+
+ion-row{
+  width: 100;
 }

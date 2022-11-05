@@ -20,4 +20,5 @@ import {ScrollingModule} from '@angular/cdk/scrolling'
   ],
   declarations: [StartPage]
 })
-export class StartPageModule {}
+export class StartPageModule {
+}

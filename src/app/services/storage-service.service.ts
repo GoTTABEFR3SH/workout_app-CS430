@@ -27,6 +27,14 @@ export class StorageService {
   }
 
   public get(key:string){
-    return this._storage.get(key)
+    return this._storage.get(key);
+  }
+
+  public clear(){
+    this._storage.clear()
+  }
+
+  public remove_key_set(date){
+    this._storage.remove(date);
   }
 }
