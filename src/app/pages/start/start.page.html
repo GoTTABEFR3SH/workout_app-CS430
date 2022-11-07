@@ -17,7 +17,7 @@
 
 <ion-content class="item-background-color-black ion-text-center" [scrollEvents]="true">
       <ion-button (click)="subtract_date()">-</ion-button>
-        <ion-button id="date"   (click)=" add_to_db(current_workout,date_time.toDateString())">{{ date_time | date:'fullDate'}}</ion-button>
+        <ion-button id="date">{{ date_time | date:'fullDate'}}</ion-button>
         <ion-button (click)="add_date()">+</ion-button>
     <ion-list>
     <ion-item-sliding *ngFor="let current of current_setty_workout; index as i">
@@ -85,7 +85,7 @@
                           <ion-button (click)="add_to_setty()">Add Set</ion-button>
                         </ion-col>
                         <ion-col class="ion-text-center" size-xl ="6" size-lg="2" size-md="2" size-sm="2" size-xs="auto">
-                          <ion-button (click)="subtract_from_set_list()">Delete Set</ion-button>
+                          <ion-button (click)="subtract_from_setty_list()">Delete Set</ion-button>
                         </ion-col>
                     </ion-row>
                   </ion-grid>
